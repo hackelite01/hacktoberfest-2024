@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SI_Kasir_Toko", "SI_Kasir_Toko\SI_Kasir_Toko.csproj", "{B3DE261F-6EEE-45AA-85F6-39EEB5F4F4F9}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SirCashierSetupTwo", "SirCashierSetupTwo\SirCashierSetupTwo.vdproj", "{F36F0951-4A73-4F79-A0CC-F5DEC4F7AE1E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3DE261F-6EEE-45AA-85F6-39EEB5F4F4F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3DE261F-6EEE-45AA-85F6-39EEB5F4F4F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3DE261F-6EEE-45AA-85F6-39EEB5F4F4F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3DE261F-6EEE-45AA-85F6-39EEB5F4F4F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F36F0951-4A73-4F79-A0CC-F5DEC4F7AE1E}.Debug|Any CPU.ActiveCfg = Release
+		{F36F0951-4A73-4F79-A0CC-F5DEC4F7AE1E}.Debug|Any CPU.Build.0 = Release
+		{F36F0951-4A73-4F79-A0CC-F5DEC4F7AE1E}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B72FAB4F-681F-4EB4-A1A0-C5F1ECFF6D33}
+	EndGlobalSection
+EndGlobal
