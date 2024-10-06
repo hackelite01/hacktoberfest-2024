@@ -1,0 +1,134 @@
+import java.util.*;
+
+class MenuItem {
+    String name;
+    double price;
+
+    public MenuItem(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return name + ": ₹" + price;
+    }
+}
+
+class CafeManagement {
+    List<MenuItem> menu;
+    Map<MenuItem, Integer> orders;
+
+    public CafeManagement() {
+        menu = new ArrayList<>();
+        orders = new HashMap<>();
+        setupMenu();
+    }
+
+    private void setupMenu() {
+        menu.add(new MenuItem("Coffee", 150.00));
+        menu.add(new MenuItem("Tea", 100.00));
+        menu.add(new MenuItem("Sandwich", 200.00));
+        menu.add(new MenuItem("Cake", 250.00));
+        menu.add(new MenuItem("Juice", 120.00));
+        menu.add(new MenuItem("Pizza", 350.00));
+        menu.add(new MenuItem("Pasta", 300.00));
+        menu.add(new MenuItem("Burger", 180.00));
+        menu.add(new MenuItem("French Fries", 100.00));
+        menu.add(new MenuItem("Ice Cream", 150.00));
+    }
+
+    public void showMenu() {
+        System.out.println("----- Cafe Menu -----");
+        for (int i = 0; i < menu.size(); i++) {
+            System.out.println((i + 1) + ". " + menu.get(i));
+        }
+        System.out.println("---------------------");
+    }
+
+    public void takeOrder(int itemNumber, int quantity) {
+        if (itemNumber < 1 || itemNumber > menu.size()) {
+            System.out.println("Invalid item selected.");
+            return;
+        }
+        MenuItem item = menu.get(itemNumber - 1);
+        orders.put(item, orders.getOrDefault(item, 0) + quantity);
+        System.out.println(quantity + " " + item.name + "(s) added to your order.");
+    }
+
+    public void showOrder() {
+        System.out.println("----- Your Order -----");
+        if (orders.isEmpty()) {
+            System.out.println("No items in your order.");
+            return;
+        }
+
+        double total = 0;
+        for (Map.Entry<MenuItem, Integer> entry : orders.entrySet()) {
+            MenuItem item = entry.getKey();
+            int quantity = entry.getValue();
+            double itemTotal = item.price * quantity;
+            total += itemTotal;
+            System.out.println(item.name + " x" + quantity + ": ₹" + itemTotal);
+        }
+        System.out.println("----------------------");
+        System.out.println("Total: ₹" + total);
+    }
+
+    public void generateBill() {
+        if (orders.isEmpty()) {
+            System.out.println("No orders placed.");
+            return;
+        }
+        showOrder();
+        System.out.println("Thank you for visiting!");
+    }
+}
+
+public class CafeApp {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        CafeManagement cafe = new CafeManagement();
+        boolean running = true;
+
+        while (running) {
+            System.out.println("\n1. Show Menu");
+            System.out.println("2. Place Order");
+            System.out.println("3. View Order");
+            System.out.println("4. Generate Bill");
+            System.out.println("5. Exit");
+            System.out.print("Select an option: ");
+
+            int choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    cafe.showMenu();
+                    break;
+                case 2:
+                    cafe.showMenu();
+                    System.out.print("Enter the item number to order: ");
+                    int itemNumber = scanner.nextInt();
+                    System.out.print("Enter the quantity: ");
+                    int quantity = scanner.nextInt();
+                    cafe.takeOrder(itemNumber, quantity);
+                    break;
+                case 3:
+                    cafe.showOrder();
+                    break;
+                case 4:
+                    cafe.generateBill();
+                    running = false;
+                    break;
+                case 5:
+                    running = false;
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please select again.");
+                    break;
+            }
+        }
+
+        scanner.close();
+    }
+}
