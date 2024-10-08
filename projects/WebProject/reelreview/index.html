@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Movie review site using TMDB API">
+  <title>Movie Reviews</title>
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>Reel Review</h1>
+    <div class="search-box">
+
+      <input class="input" type="text" id="searchMovie" placeholder="Search for a movie...">
+    </div>
+  </header>
+  <section id="movie-list">
+    <!-- Movies will be dynamically added here -->
+  </section>
+
+
+  <!-- Modal for adding a review -->
+  <div id="review-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Add Your Review for <span id="movie-title"></span></h2>
+      <textarea id="review-text" rows="5" placeholder="Write your review here..."></textarea>
+      <button id="submit-review">Submit Review</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
