@@ -70,10 +70,18 @@ public class ToDoListApp {
 
     private static void removeTask(int taskNumber) {
         if (taskNumber <= 0 || taskNumber > toDoList.size()) {
-            System.out.println("Invalid task number.");
-        } else {
+            // Input Validation
+            System.out.println("Invalid task number. Please enter a number between 1 and "+ toDoList.size());
+            return;
+        } 
+
+        // Specific exception handling
+        try{
             String removedTask = toDoList.remove(taskNumber - 1);
             System.out.println("Task '" + removedTask + "' removed successfully.");
+        } catch(IndexOutOfBoundsException e){
+            // This should never happen, but just in case
+            System.err.println("Error removing task: " + e.getMessage());
         }
     }
 }
