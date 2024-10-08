@@ -1,0 +1,136 @@
+
+// state is used when you change it again and again and you want the variable changing on the screen
+// without reloading the page..
+// You cannot change the props If ever you need to set state by passing props you can set state
+// after that ypu can change the state you cannot change the props directly
+// Props are read only that we have seen
+
+// we use Fetch APIS to bring data from server we can hit using Fetch api
+// and api key
+
+// (cODE Refactoring)
+
+//  sync updateNews() {
+
+//   const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=1fec51274da84f6281dd103f1d2f000f&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+//   this.setState({ loading: true });
+//   let data = await fetch(url);
+//   let parseData = await data.json();
+//   // It always be return Promise..
+//   console.log(parseData);
+//   this.setState({
+//     articles: parseData.articles,
+//     totalResults: parseData.totalResults,
+//   loading:false});
+// }
+
+// async componentDidMount() {
+//   this.updateNews();
+// let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=1fec51274da84f6281dd103f1d2f000f&page=1&pageSize=${this.props.pageSize}`;
+// this.setState({ loading: true });
+// let data = await fetch(url);
+// let parseData = await data.json();
+// // It always be return Promise..
+// console.log(parseData);
+// this.setState({
+//   articles: parseData.articles,
+//   totalResults: parseData.totalResults,
+// loading:false});
+// Actually this is promises . the data i got if i want to convert into text
+// or into json
+//}
+
+// then we will check the next pae exist or not : total number of articles divide
+// by math.ceil(pageSize).. math.ceil of 4.6 is 5 , and 5.8 is 6 . math.ceil return
+// largest integer which comes after that number
+
+// PreviousClick = async () => {
+// console.log("Previous");
+// let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=1fec51274da84f6281dd103f1d2f000f&page=${
+//   this.state.page - 1
+// }&pageSize=${this.props.pageSize}`;
+// this.setState({ loading: true });
+// let data = await fetch(url);
+// let parseData = await data.json();
+// // It always be return Promise..
+// console.log(parseData);
+// this.setState({
+//   page: this.state.page - 1,
+//   articles: parseData.articles,
+//   loading: false,
+// });
+// this.setState({page: this.state.page -1});
+// this.updateNews();
+
+// };
+
+// All data send using props..
+// There is an information in  news components which we want to change according to us
+// for example one information which we want to chnange  is how many news items are being displayed in one page may be one page 2 news items shows as per my choice.
+
+//
+
+// NextClick = async () => {
+//   console.log("Next");
+// this is how much total number of pages
+// if (
+//   !(
+//     this.state.page + 1 >
+//     Math.ceil(this.state.totalResults / this.props.pageSize)
+//   )
+// ) {
+//   let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=1fec51274da84f6281dd103f1d2f000f&page=${
+//     this.state.page + 1
+//   }&pageSize=${this.props.pageSize}`;
+//   this.setState({ loading: true });
+//   let data = await fetch(url);
+//   let parseData = await data.json();
+//   // It always be return Promise..
+//   this.setState({
+//     page: this.state.page + 1,
+//     articles: parseData.articles,
+//     loading: false,
+//   });
+// }
+//   this.setState({page: this.state.page +1})
+//   this.updateNews();
+// };
+// It is the lifecycle method . It will be run after rendering all components
+
+// React js Components lifecycle :
+
+// The series of events that happen from the mounting of a react components
+// to its Unmounting .
+// Mounting -- Birth of your components
+// jab apka components aya ha Existence par...
+
+// Update -- Growth of our components 
+// Unmount --   Death of your components  .
+// mount -- Birth of your components.
+
+// In render method you cannot modify the state of the components .. 
+// Render Methods (Jis ka andar ham jsx dakhta han jis ka andar ham saray kary saray 
+// rendering karty han...)
+// rendering pure means particular input ka lei same hi output da..
+// in class method we use render method must...
+// ham render method ka andar state ko modify nahi kar sakty..
+ 
+// componentdidmount method .. aik bar hamara render method jo run ho gaya us ka 
+// baad hamra componentdidmount method run ho ga . eg : data fetch to APIS ,
+// ALSO  set state and also used aysnc method .. ya method tabhi use karty han jab hamy fetching karni party ha data ki
+// (component mount ho chuka ha ab run ho raha ha )
+
+// componentdidupdate means component  updated 
+// componentdidupdate method used a  (ham na kisi bhi state ko change kia components 
+// ka andar koe bhi change ki , state change kia ya phir us ko new props mil gaye 
+// jasey bhi apka component update howa then componentdidupdate method run 
+// componentdidupdate method is updating the DOM in response to props or state changes )
+
+
+// componentwillunmount method  .. when our component is destroyed then run it 
+// cleansup / any resources destroyed ..
+//  Four Most common react life cycle Methods 
+// 1. render()
+// 2. componentDidMount()
+// 3. componentDidUpdate()
+// 4. componentWillUnmount()
