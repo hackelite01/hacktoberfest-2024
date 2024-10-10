@@ -1,0 +1,43 @@
+{
+  "name": "midnight-sky",
+  "displayName": "Midnight Sky",
+  "description": "A calming, deep blue theme for Visual Studio Code, perfect for late-night coding sessions.🌙",
+  "icon": "images/icon.png",
+  "version": "0.0.3",
+  "publisher": "MidnightSky",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZeeshanMukhtar1/midnight-sky"
+  },
+  "engines": {
+    "vscode": "^1.89.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "dark",
+    "blue",
+    "high contrast",
+    "aesthetic",
+    "blueish",
+    "midnight",
+    "sky",
+    "stars",
+    "night",
+    "calm",
+    "relax",
+    "creative",
+    "coding"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Midnight Sky",
+        "uiTheme": "hc-black",
+        "path": "./themes/Midnight Sky-color-theme.json"
+      }
+    ]
+  }
+}
